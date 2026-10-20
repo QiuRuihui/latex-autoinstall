@@ -14,26 +14,9 @@ MiKTeX 会自动去装,Tectonic 会按需下载,而 **TeX Live 不会**——尤
 
 ## 工作原理
 
-```
-            ┌──────────────────────────────┐
-xelatex ───▶│  latex-autoinstall (wrapper)  │
-pdflatex ──▶│                              │
-lualatex ──▶└──────────────┬───────────────┘
-                           │ 1. 调用真实引擎 /usr/bin/<engine>
-                           ▼
-                 ┌───────────────────┐
-                 │ 编译成功?          │──是──▶ 输出 PDF,结束
-                 └─────────┬─────────┘
-                           否
-                           ▼
-             2. 从日志抓取 "File `xxx.sty' not found"
-                           ▼
-             3. tlmgr --usermode install xxx  (装入 ~/texmf)
-                           ▼
-             4. kpsewhich 验证文件确实可见
-                           ▼
-             5. 重新编译(最多 8 轮)
-```
+![工作原理](assets/workflow.png)
+
+> 源文件:[`assets/workflow.drawio`](assets/workflow.drawio),用 [draw.io](https://app.diagrams.net/) 打开即可编辑。
 
 几个关键点:
 

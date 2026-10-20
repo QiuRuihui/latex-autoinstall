@@ -1,0 +1,100 @@
+<mxfile host="app.diagrams.net" modified="2026-10-20T22:20:00.000Z" agent="drawio" version="24.0.0" type="device">
+  <diagram id="workflow" name="工作原理">
+    <mxGraphModel dx="1000" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="n1" value="编译器入口&#xa;xelatex / pdflatex / lualatex" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="290" y="40" width="220" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="n2" value="latex-autoinstall&#xa;包装器" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="290" y="140" width="220" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="n3" value="调用真实引擎&#xa;/usr/bin/&amp;lt;engine&amp;gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="290" y="240" width="220" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="n4" value="编译成功？" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="300" y="340" width="200" height="90" as="geometry" />
+        </mxCell>
+
+        <mxCell id="n5" value="输出 PDF，结束" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="640" y="355" width="180" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="n6" value="从日志提取&#xa;File `xxx.sty' not found" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="280" y="480" width="240" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="n7" value="tlmgr --usermode install xxx&#xa;装入 ~/texmf" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="280" y="590" width="240" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="n8" value="kpsewhich 验证文件可见" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="280" y="700" width="240" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="n9" value="轮数 &amp;lt; 8？" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="300" y="810" width="200" height="90" as="geometry" />
+        </mxCell>
+
+        <mxCell id="n10" value="输出错误并退出" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="280" y="950" width="240" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="n1" target="n2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="n2" target="n3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="n3" target="n4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e4" value="是" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="n4" target="n5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e5" value="否" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="n4" target="n6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="n6" target="n7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="n7" target="n8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="n8" target="n9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="n9" target="n3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="140" y="855" />
+              <mxPoint x="140" y="270" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="lbl-loop" value="是，重新编译" style="text;html=1;align=right;verticalAlign=middle;fontSize=12;fontColor=#666666;labelBackgroundColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="20" y="535" width="110" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e10" value="否" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="n9" target="n10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
