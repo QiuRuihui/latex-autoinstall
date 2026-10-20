@@ -38,7 +38,7 @@ MiKTeX 会自动去装,Tectonic 会按需下载,而 **TeX Live 不会**——尤
 git clone https://github.com/QiuRuihui/latex-autoinstall.git && cd latex-autoinstall && ./install.sh
 ```
 
-> 仓库是私有的,执行前需要你本机已登录 GitHub(浏览器登录的凭据不通用,请先跑一次 `gh auth login`,或使用带访问权限的 HTTPS 凭据)。
+> 仓库已公开,克隆不需要登录或凭据。若网络访问 GitHub 较慢,可先配置代理。
 
 如果已经装过 `gh`,也可以用:
 
