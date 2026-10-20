@@ -49,10 +49,25 @@ lualatex ──▶└──────────────┬────�
 
 ## 安装
 
+一条命令完成安装(克隆到当前目录并建立符号链接):
+
+```bash
+git clone https://github.com/QiuRuihui/latex-autoinstall.git && cd latex-autoinstall && ./install.sh
+```
+
+> 仓库是私有的,执行前需要你本机已登录 GitHub(浏览器登录的凭据不通用,请先跑一次 `gh auth login`,或使用带访问权限的 HTTPS 凭据)。
+
+如果已经装过 `gh`,也可以用:
+
+```bash
+gh repo clone QiuRuihui/latex-autoinstall && cd latex-autoinstall && ./install.sh
+```
+
+### 分步安装
+
 ```bash
 git clone https://github.com/QiuRuihui/latex-autoinstall.git
 cd latex-autoinstall
-chmod +x install.sh uninstall.sh
 ./install.sh
 ```
 
@@ -63,6 +78,12 @@ chmod +x install.sh uninstall.sh
 3. 检查 `~/.local/bin` 是否在 `PATH` 中
 
 > `~/.local/bin` 在标准路径里排在 `/usr/bin` 之前,所以它会自动覆盖同名编译器。VS Code(包括 snap 版)和 TeXstudio 的 `PATH` 都遵循这一顺序,因此两者无需任何配置即可生效。
+
+### 更新
+
+```bash
+cd latex-autoinstall && git pull && ./install.sh
+```
 
 验证:
 
